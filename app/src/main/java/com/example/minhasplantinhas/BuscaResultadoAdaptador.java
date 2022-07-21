@@ -12,14 +12,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 //https://www.youtube.com/watch?v=ZTg-oXaCgBk
-public class MinhasPlantasAdaptador extends RecyclerView.Adapter<MinhasPlantasAdaptador.ViewHolder> {
+public class BuscaResultadoAdaptador extends RecyclerView.Adapter<BuscaResultadoAdaptador.ViewHolder> {
 
 
+    BuscaResultado busca = new BuscaResultado();
     TodasAsPlantas[] todasAsPlantas; // Cria um Array
     Context context;
 
+
     //Faz um array do TodasAsPlantas e coloca no contexto ListaDePlantas
-    public MinhasPlantasAdaptador(TodasAsPlantas[] todasAsPlantas, MinhasPlantas activity) {
+    public BuscaResultadoAdaptador(TodasAsPlantas[] todasAsPlantas, BuscaResultado activity) {
         this.todasAsPlantas = todasAsPlantas;
         this.context = activity;
 
@@ -58,8 +60,10 @@ public class MinhasPlantasAdaptador extends RecyclerView.Adapter<MinhasPlantasAd
             @Override
             public void onClick(View v) {
                 //A Intenção captura o contexto do fragmento e o envia para a próxima página
-                Intent intent = new Intent(v.getContext(), DetalhesMinhasPlantas.class);
-                String strcontador = String.valueOf(holder.getAdapterPosition());
+                Intent intent = new Intent(v.getContext(), DetalhesPlanta.class);
+                //String strcontador = String.valueOf(holder.getAdapterPosition());
+                //intent.putExtra("chave_contador", strcontador);
+                String strcontador = String.valueOf(busca.plantasAdicionadas.get(0));
                 intent.putExtra("chave_contador", strcontador);
 
                 context.startActivity(intent);

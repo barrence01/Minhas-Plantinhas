@@ -20,12 +20,6 @@ import java.util.ArrayList;
 //https://www.youtube.com/watch?v=ZTg-oXaCgBk
 public class TodasAsPlantasAdaptador extends RecyclerView.Adapter<TodasAsPlantasAdaptador.ViewHolder> {
 
-    //Contador da classe "Memoria"
-    Memoria memoria = new Memoria();
-    int contador = memoria.getContador();
-
-
-
 
     TodasAsPlantas[] todasAsPlantas; // Cria um Array
     Context context;
@@ -72,6 +66,9 @@ public class TodasAsPlantasAdaptador extends RecyclerView.Adapter<TodasAsPlantas
                 String strcontador = String.valueOf(holder.getAdapterPosition());
                 intent.putExtra("chave_contador", strcontador);
 
+                String fonte = "lista";
+                intent.putExtra("fonte", fonte);
+
                 context.startActivity(intent);
                 //Toast.makeText(context, listaTodasAsPlantas.getNomePlanta(), Toast.LENGTH_SHORT).show();
             }
@@ -80,7 +77,7 @@ public class TodasAsPlantasAdaptador extends RecyclerView.Adapter<TodasAsPlantas
 
     @Override
     public int getItemCount() {
-        return contador;
+        return todasAsPlantas.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

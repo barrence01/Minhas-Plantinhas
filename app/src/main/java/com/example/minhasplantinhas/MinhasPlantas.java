@@ -96,7 +96,6 @@ public class MinhasPlantas extends AppCompatActivity {
             }
 
             MinhasPlantasAdaptador adaptador = new MinhasPlantasAdaptador(todasAsPlantas, MinhasPlantas.this);
-            adaptador.setContador(qtdplantas);
             recyclerView.setAdapter(adaptador);
 
         } else {

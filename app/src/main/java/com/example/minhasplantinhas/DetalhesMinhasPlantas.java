@@ -68,6 +68,7 @@ public class DetalhesMinhasPlantas extends AppCompatActivity {
         imagemLuz = findViewById(R.id.imagem_luz2);
         //----------------------------------------------------------
         //Atribuir valores a variáveis
+
         int chave = mm.plantasAdicionadas2.get(chaveContador);
 
         String nome = listaNomePlantas.get(chave);

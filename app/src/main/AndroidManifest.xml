@@ -14,6 +14,10 @@
         android:theme="@style/Theme.MinhasPlantinhas"
         tools:targetApi="31">
         <activity
+            android:name=".BuscaResultado"
+            android:exported="false"
+            android:label="@string/resultado"/>
+        <activity
             android:name=".DetalhesPlanta"
             android:exported="false"
             android:label="@string/detalhes" />

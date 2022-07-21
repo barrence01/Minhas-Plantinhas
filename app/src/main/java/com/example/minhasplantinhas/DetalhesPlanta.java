@@ -27,8 +27,11 @@ public class DetalhesPlanta extends AppCompatActivity {
         //----------------------------------------------------------
         //Dados extras recebidos
         String contador = getIntent().getStringExtra("chave_contador");
+
+
         //Contador
         int chaveContador = Integer.parseInt(contador);
+
         //----------------------------------------------------------
         //Dados da memória
         Memoria memoria = new Memoria();
@@ -64,6 +67,7 @@ public class DetalhesPlanta extends AppCompatActivity {
 
         imagemPlanta = findViewById(R.id.imageView2);
         imagemLuz = findViewById(R.id.imagem_luz2);
+
         //----------------------------------------------------------
         //Atribuir valores a variáveis
         String nome = listaNomePlantas.get(chaveContador);

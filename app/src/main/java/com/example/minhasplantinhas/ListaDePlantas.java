@@ -5,13 +5,14 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
+
+import android.content.Intent;
 import android.os.Bundle;
+
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
+
 
 public class ListaDePlantas extends AppCompatActivity {
 
@@ -40,8 +41,6 @@ public class ListaDePlantas extends AppCompatActivity {
     TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[contador];
 
     SearchView searchView;
-    RecyclerView recyclerView;
-    TodasAsPlantasAdaptador adapter;
 
 
     @Override
@@ -51,8 +50,8 @@ public class ListaDePlantas extends AppCompatActivity {
 
 
         preencherLista();
-
         abrirRecyclerView();
+
 //        //Adicionar os dados na lista
 //        TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[]{
 //
@@ -65,16 +64,31 @@ public class ListaDePlantas extends AppCompatActivity {
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                    //String str = nomeDasPlantas.get(1);
-                    //String minusculo = str.toLowerCase();
+            public boolean onQueryTextSubmit(String busca) {
+                int indexDaBusca;
+                String a = busca.toLowerCase();
 
+                for (int i = 0; i < nomeDasPlantas.toArray().length; i++) {
+                    String x = nomeDasPlantas.get(i).toLowerCase();
+                    if (x.startsWith(a)) {
+                        indexDaBusca = i;
+                        Toast.makeText(ListaDePlantas.this, "Encontrado!", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(ListaDePlantas.this, BuscaResultado.class);
+                        String strcontador = String.valueOf(indexDaBusca);
+                        intent.putExtra("chave_contador", strcontador);
+                        startActivity(intent);
+                        break;
 
-                if (nomeDasPlantas.stream().anyMatch(query::equalsIgnoreCase)) {
-                    Toast.makeText(ListaDePlantas.this, "Encontrado",Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(ListaDePlantas.this, "Nada Encontrado",Toast.LENGTH_LONG).show();
+                    } else if (i == nomeDasPlantas.toArray().length - 1){
+                        Toast.makeText(ListaDePlantas.this, "Nada Encontrado", Toast.LENGTH_LONG).show();
+                    }
+
                 }
+
+//                if (nomeDasPlantas.stream().anyMatch(query::equalsIgnoreCase)) {
+//                    //int x = nomeDasPlantas.get().toLowerCase().indexOf(query);
+//                    String y = query.toLowerCase(); }
+
                 return true;
             }
 
