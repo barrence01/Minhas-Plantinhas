@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Minhas Plantinhas</string>
+    <string name="title_activity_minhas_plantas">MinhasPlantas</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="btn_comecar">Começar</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="todas_as_plantas">Todas as Plantas</string>
+
+
+    <string name="titulo_iluminacao">Iluminação e Ambiente:</string>
+    <string name="rega">Rega:</string>
+    <string name="titulo_poda">Poda:</string>
+    <string name="titulo_rega">Rega:</string>
+    <string name="fertilizante">Fertilizante:</string>
+    <string name="cuidados_especiais">Cuidados Especiais:</string>
+    <string name="btn_adicionar">Adicionar aos Favoritos</string>
+    <string name="btn_remover">Deletar dos Favoritos</string>
+    <string name="digite_o_seu_email">Digite seu Email</string>
+    <string name="digite_a_sua_senha">Digite sua senha</string>
+</resources>

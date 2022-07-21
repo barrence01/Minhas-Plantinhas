@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="1dp"> <!--Height tem que wrap no content ou ficará enorme-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@drawable/retangulo"
+            android:foreground="?attr/selectableItemBackground"
+            > <!--android:background="?android:attr/selectableItemBackground" adiciona um hover-->
+
+            <ImageView
+                android:id="@+id/imagem_planta"
+                android:layout_width="69dp"
+                android:layout_height="74dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/nome_planta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="-5dp"
+                android:layout_toRightOf="@+id/imagem_planta"
+                android:textSize="24sp"
+                tools:text="Nome" />
+
+            <TextView
+                android:id="@+id/especie_planta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nome_planta"
+                android:layout_toRightOf="@+id/imagem_planta"
+                tools:text="Especie" />
+
+            <ImageView
+                android:id="@+id/imagem_agua"
+                android:layout_width="16dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/especie_planta"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/imagem_planta"
+                android:background="@drawable/water_drop" />
+
+            <TextView
+                android:id="@+id/txt_agua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/especie_planta"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="9dp"
+                android:layout_toRightOf="@+id/imagem_agua"
+                android:textSize="16sp"
+                tools:text="agua" />
+
+            <ImageView
+                android:id="@+id/imagem_luz"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_below="@+id/especie_planta"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/txt_agua" />
+
+            <TextView
+                android:id="@+id/txt_luz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/especie_planta"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="9dp"
+                android:layout_toRightOf="@+id/imagem_luz"
+                android:textSize="16sp"
+                tools:text="luz" />
+
+            <ImageView
+                android:id="@+id/imagem_ambiente"
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:layout_below="@+id/especie_planta"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/txt_luz"
+                android:background="@drawable/day_cloud_wind" />
+
+            <TextView
+                android:id="@+id/txt_ambiente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/especie_planta"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="9dp"
+                android:layout_toRightOf="@+id/imagem_ambiente"
+                android:textSize="16sp"
+                tools:text="ambiente" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
