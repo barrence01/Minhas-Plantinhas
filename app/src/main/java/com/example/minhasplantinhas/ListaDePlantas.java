@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import android.widget.Toast;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 
 
@@ -62,17 +63,49 @@ public class ListaDePlantas extends AppCompatActivity {
 //
         searchView = findViewById(R.id.searchView);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String busca) {
+//                int indexDaBusca;
+//                String a = busca.toLowerCase();
+//
+//                for (int i = 0; i < nomeDasPlantas.toArray().length; i++) {
+//                    String x = nomeDasPlantas.get(i).toLowerCase();
+//                    if (x.startsWith(a)) {
+//                        indexDaBusca = i;
+//                        Toast.makeText(ListaDePlantas.this, "Encontrado!", Toast.LENGTH_LONG).show();
+//                        Intent intent = new Intent(ListaDePlantas.this, BuscaResultado.class);
+//                        String strcontador = String.valueOf(indexDaBusca);
+//                        intent.putExtra("chave_contador", strcontador);
+//                        startActivity(intent);
+//                        break;
+//
+//                    } else if (i == nomeDasPlantas.toArray().length - 1){
+//                        Toast.makeText(ListaDePlantas.this, "Nada Encontrado", Toast.LENGTH_LONG).show();
+//                    }
+//
+//                }
+//
+////                if (nomeDasPlantas.stream().anyMatch(query::equalsIgnoreCase)) {
+////                    //int x = nomeDasPlantas.get().toLowerCase().indexOf(query);
+////                    String y = query.toLowerCase(); }
+//
+//                return true;
+//            }
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String busca) {
                 int indexDaBusca;
                 String a = busca.toLowerCase();
+                String buscaSemAcento = removerAcentos(a);
 
                 for (int i = 0; i < nomeDasPlantas.toArray().length; i++) {
                     String x = nomeDasPlantas.get(i).toLowerCase();
-                    if (x.startsWith(a)) {
+                    String itemListaSemAcento = removerAcentos(x);
+                    if (itemListaSemAcento.startsWith(buscaSemAcento)) {
                         indexDaBusca = i;
                         Toast.makeText(ListaDePlantas.this, "Encontrado!", Toast.LENGTH_LONG).show();
+
                         Intent intent = new Intent(ListaDePlantas.this, BuscaResultado.class);
                         String strcontador = String.valueOf(indexDaBusca);
                         intent.putExtra("chave_contador", strcontador);
@@ -100,6 +133,12 @@ public class ListaDePlantas extends AppCompatActivity {
 
 
 
+    }
+
+
+    public static String removerAcentos(String str) {
+        str = Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("-", " ");
+        return Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 
     private void preencherLista() {

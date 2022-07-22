@@ -23,9 +23,6 @@ import java.util.HashSet;
 
 
 public class MinhasPlantas extends AppCompatActivity {
-    //Esta activity controla os botões da página minhas plantas
-    //private AppBarConfiguration appBarConfiguration;
-    //private ActivityMinhasPlantasBinding binding;
 
     //Array estático para não zerar onResume
     static ArrayList<Integer> plantasAdicionadas = new ArrayList<Integer>();
@@ -70,30 +67,29 @@ public class MinhasPlantas extends AppCompatActivity {
             ArrayList<Integer> listWithoutDuplicates = new ArrayList<>(new HashSet<>(plantasAdicionadas));
             plantasAdicionadas2 = listWithoutDuplicates;
 
+
             int qtdNDuplicado = listWithoutDuplicates.toArray().length;
-
-
-            RecyclerView recyclerView = findViewById(R.id.minhasplantas);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-            //TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[contador];
-
-//                TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[]{
-//                        new TodasAsPlantas("Samanbaia", "sambaias", "1h", "manhã", "sombra", R.drawable.foto_sem_foto, R.drawable.sun_color)
-//                };
-
             int qtdplantas = qtdNDuplicado;
+
+            //Remove texto do botão +
             if(listWithoutDuplicates.toArray().length > 5 ){
                 toqueAdicionar = findViewById(R.id.toqueadicionar);
                 toqueAdicionar.setText("");
             }
 
+
+
+            //Adiciona item na lista de favoritos e remove duplicados
             TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[qtdplantas];
             for (int i = 0; i < qtdplantas; i++) {
                 int x = listWithoutDuplicates.get(i);
                 todasAsPlantas[i] = new TodasAsPlantas(memoria.getNomeDasPlantas().get(x), memoria.getEspeciesDasPlantas().get(x), memoria.getTxtAgua().get(x), memoria.getTxtLuz().get(x), memoria.getTxtAmbiente().get(x), memoria.getImagemPlanta().get(x), memoria.getImagemLuz().get(x));
             }
+
+            //RecyclerView
+            RecyclerView recyclerView = findViewById(R.id.minhasplantas);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
             MinhasPlantasAdaptador adaptador = new MinhasPlantasAdaptador(todasAsPlantas, MinhasPlantas.this);
             recyclerView.setAdapter(adaptador);
