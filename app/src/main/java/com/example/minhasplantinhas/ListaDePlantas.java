@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import java.text.Normalizer;
-import java.util.ArrayList;
 
 
 public class ListaDePlantas extends AppCompatActivity {
@@ -20,21 +19,11 @@ public class ListaDePlantas extends AppCompatActivity {
     //Página que mostra a lista total de plantas
     //----------------------------------------------------------
 
-    //-----------------------------------------------------------
-    //Dados dos CardsView
-    Memoria cardview = new Memoria();
-    ArrayList<String> nomeDasPlantas = cardview.getNomeDasPlantas();
-    ArrayList<String> especiesDasPlantas = cardview.getEspeciesDasPlantas();
-    ArrayList<String> txtAgua = cardview.getTxtAgua();
-    ArrayList<String> txtLuz = cardview.getTxtLuz();
-    ArrayList<String> txtAmbiente = cardview.getTxtAmbiente();
-    //-----------------------------------------------------------
-    //Arrays para facilitar a manipulação da imagem.
-    ArrayList<Integer> imagemPlanta = cardview.getImagemPlanta();
-    ArrayList<Integer> imagemLuz = cardview.getImagemLuz();
+
     //----------------------------------------------------------
     //Contador de itens
-    int contador = nomeDasPlantas.toArray().length;
+    //int contador = nomeDasPlantas.toArray().length;
+    int contador = Memoria.nomeDasPlantas.toArray().length;
 
 
     //----------------------------------------------------------
@@ -49,49 +38,15 @@ public class ListaDePlantas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_de_plantas);
 
-
         preencherLista();
         abrirRecyclerView();
 
-//        //Adicionar os dados na lista
-//        TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[]{
-//
-//                //new TodasAsPlantas("Samanbaia", "sambaias", "1h", "manhã", "sombra", R.drawable.foto_sem_foto, R.drawable.sun_color)
-//                //new TodasAsPlantas("Samanbaia", "sambaias", "1h", "manhã", "sombra", R.drawable.foto_sem_foto, R.drawable.sun_color)
-//                //new TodasAsPlantas("Samanbaia", "sambaias", "1h", "manhã", "sombra", R.drawable.foto_sem_foto, R.drawable.sun_color)
-//        };
-//
+
+
+        //-----------------------------------------------
+        //SearchView
         searchView = findViewById(R.id.searchView);
 
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String busca) {
-//                int indexDaBusca;
-//                String a = busca.toLowerCase();
-//
-//                for (int i = 0; i < nomeDasPlantas.toArray().length; i++) {
-//                    String x = nomeDasPlantas.get(i).toLowerCase();
-//                    if (x.startsWith(a)) {
-//                        indexDaBusca = i;
-//                        Toast.makeText(ListaDePlantas.this, "Encontrado!", Toast.LENGTH_LONG).show();
-//                        Intent intent = new Intent(ListaDePlantas.this, BuscaResultado.class);
-//                        String strcontador = String.valueOf(indexDaBusca);
-//                        intent.putExtra("chave_contador", strcontador);
-//                        startActivity(intent);
-//                        break;
-//
-//                    } else if (i == nomeDasPlantas.toArray().length - 1){
-//                        Toast.makeText(ListaDePlantas.this, "Nada Encontrado", Toast.LENGTH_LONG).show();
-//                    }
-//
-//                }
-//
-////                if (nomeDasPlantas.stream().anyMatch(query::equalsIgnoreCase)) {
-////                    //int x = nomeDasPlantas.get().toLowerCase().indexOf(query);
-////                    String y = query.toLowerCase(); }
-//
-//                return true;
-//            }
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String busca) {
@@ -99,8 +54,8 @@ public class ListaDePlantas extends AppCompatActivity {
                 String a = busca.toLowerCase();
                 String buscaSemAcento = removerAcentos(a);
 
-                for (int i = 0; i < nomeDasPlantas.toArray().length; i++) {
-                    String x = nomeDasPlantas.get(i).toLowerCase();
+                for (int i = 0; i < Memoria.nomeDasPlantas.toArray().length; i++) {
+                    String x = Memoria.nomeDasPlantas.get(i).toLowerCase();
                     String itemListaSemAcento = removerAcentos(x);
                     if (itemListaSemAcento.startsWith(buscaSemAcento)) {
                         indexDaBusca = i;
@@ -112,15 +67,13 @@ public class ListaDePlantas extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-                    } else if (i == nomeDasPlantas.toArray().length - 1){
+                    } else if (i == Memoria.nomeDasPlantas.toArray().length - 1){
                         Toast.makeText(ListaDePlantas.this, "Nada Encontrado", Toast.LENGTH_LONG).show();
                     }
 
                 }
+//                if (nomeDasPlantas.stream().anyMatch(query::equalsIgnoreCase))
 
-//                if (nomeDasPlantas.stream().anyMatch(query::equalsIgnoreCase)) {
-//                    //int x = nomeDasPlantas.get().toLowerCase().indexOf(query);
-//                    String y = query.toLowerCase(); }
 
                 return true;
             }
@@ -131,9 +84,10 @@ public class ListaDePlantas extends AppCompatActivity {
             }
         });
 
-
-
     }
+
+
+
 
 
     public static String removerAcentos(String str) {
@@ -143,8 +97,8 @@ public class ListaDePlantas extends AppCompatActivity {
 
     private void preencherLista() {
 
-        for (int i = 0; i < nomeDasPlantas.toArray().length; i++) {
-            todasAsPlantas[i] = new TodasAsPlantas(nomeDasPlantas.get(i), especiesDasPlantas.get(i), txtAgua.get(i), txtLuz.get(i), txtAmbiente.get(i), imagemPlanta.get(i), imagemLuz.get(i));
+        for (int i = 0; i < Memoria.nomeDasPlantas.toArray().length; i++) {
+            todasAsPlantas[i] = new TodasAsPlantas(Memoria.nomeDasPlantas.get(i), Memoria.especiesDasPlantas.get(i), Memoria.txtAgua.get(i), Memoria.txtLuz.get(i), Memoria.txtAmbiente.get(i), Memoria.imagemPlanta.get(i), Memoria.imagemLuz.get(i));
         }
     }
 

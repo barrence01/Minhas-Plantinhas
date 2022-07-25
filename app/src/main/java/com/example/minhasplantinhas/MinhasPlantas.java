@@ -12,19 +12,19 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.navigation.ui.AppBarConfiguration;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.HashSet;
 
 
 public class MinhasPlantas extends AppCompatActivity {
 
-    //Array estático para não zerar onResume
+    //Array estático para não zerar onResume e ser compartilhado globalmente
     static ArrayList<Integer> plantasAdicionadas = new ArrayList<Integer>();
     static ArrayList<Integer> plantasAdicionadas2 = new ArrayList<Integer>();
 
@@ -68,8 +68,8 @@ public class MinhasPlantas extends AppCompatActivity {
             plantasAdicionadas2 = listWithoutDuplicates;
 
 
-            int qtdNDuplicado = listWithoutDuplicates.toArray().length;
-            int qtdplantas = qtdNDuplicado;
+            int qtdplantas = listWithoutDuplicates.toArray().length;
+
 
             //Remove texto do botão +
             if(listWithoutDuplicates.toArray().length > 5 ){

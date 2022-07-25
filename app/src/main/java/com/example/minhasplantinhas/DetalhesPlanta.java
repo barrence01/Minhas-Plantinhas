@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class DetalhesPlanta extends AppCompatActivity {
 
@@ -34,21 +33,20 @@ public class DetalhesPlanta extends AppCompatActivity {
 
         //----------------------------------------------------------
         //Dados da memória
-        Memoria memoria = new Memoria();
-        ArrayList<String> listaNomePlantas = memoria.getNomeDasPlantas();
-        ArrayList<String> listaEspecies = memoria.getEspeciesDasPlantas();
-        ArrayList<String> listatxtAgua = memoria.getTxtAgua();
-        ArrayList<String> listatxtLuz = memoria.getTxtLuz();
-        ArrayList<String> listatxtAmbiente = memoria.getTxtAmbiente();
-        ArrayList<Integer> listaImagemPlanta = memoria.getImagemPlanta();
-        ArrayList<Integer> listaImagemLuz = memoria.getImagemLuz();
+        ArrayList<String> listaNomePlantas = Memoria.nomeDasPlantas;
+        ArrayList<String> listaEspecies = Memoria.especiesDasPlantas;
+        ArrayList<String> listatxtAgua = Memoria.txtAgua;
+        ArrayList<String> listatxtLuz = Memoria.txtLuz;
+        ArrayList<String> listatxtAmbiente = Memoria.txtAmbiente;
+        ArrayList<Integer> listaImagemPlanta = Memoria.imagemPlanta;
+        ArrayList<Integer> listaImagemLuz = Memoria.imagemLuz;
         //ArrayList do conteúdo
-        ArrayList<String> listaResumo = memoria.getListaResumo();
-        ArrayList<String> listaIluminacao = memoria.getListaIluminacao();
-        ArrayList<String> listaRega = memoria.getListaRega();
-        ArrayList<String> listaPoda = memoria.getListaPoda();
-        ArrayList<String> listaFertilizantes = memoria.getListaFertilizantes();
-        ArrayList<String> listaCuidadosExtras = memoria.getListaCuidadosExtras();
+        ArrayList<String> listaResumo = Memoria.listaResumo;
+        ArrayList<String> listaIluminacao = Memoria.listaIluminacao;
+        ArrayList<String> listaRega = Memoria.listaRega;
+        ArrayList<String> listaPoda = Memoria.listaPoda;
+        ArrayList<String> listaFertilizantes = Memoria.listaFertilizantes;
+        ArrayList<String> listaCuidadosExtras = Memoria.listaCuidadosExtras;
         //----------------------------------------------------------
 
         //----------------------------------------------------------
@@ -109,7 +107,6 @@ public class DetalhesPlanta extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DetalhesPlanta.this, MinhasPlantas.class);
 
-                MinhasPlantas minhasplantas = new MinhasPlantas();
                 intent.putExtra("chave_contador", contador);
                 finishAffinity();
                 startActivity(intent);

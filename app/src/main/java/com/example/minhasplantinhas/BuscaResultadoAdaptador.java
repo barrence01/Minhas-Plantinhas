@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 public class BuscaResultadoAdaptador extends RecyclerView.Adapter<BuscaResultadoAdaptador.ViewHolder> {
 
 
-    BuscaResultado busca = new BuscaResultado();
     TodasAsPlantas[] todasAsPlantas; // Cria um Array
     Context context;
 
@@ -63,7 +62,7 @@ public class BuscaResultadoAdaptador extends RecyclerView.Adapter<BuscaResultado
                 Intent intent = new Intent(v.getContext(), DetalhesPlanta.class);
                 //String strcontador = String.valueOf(holder.getAdapterPosition());
                 //intent.putExtra("chave_contador", strcontador);
-                String strcontador = String.valueOf(busca.plantasAdicionadas.get(0));
+                String strcontador = String.valueOf(BuscaResultado.plantasAdicionadas.get(0));
                 intent.putExtra("chave_contador", strcontador);
 
                 context.startActivity(intent);
@@ -91,7 +90,7 @@ public class BuscaResultadoAdaptador extends RecyclerView.Adapter<BuscaResultado
         TextView txtAmbiente;
 
         public ViewHolder(@NonNull View itemView) {
-            // Atribuindo os IDs para as variaveis
+            // Atribuindo os IDs para as variaveis do cardview
             super(itemView);
             imgPlanta = itemView.findViewById(R.id.imagem_planta);
             //imgAgua = itemView.findViewById(R.id.imagem_agua);

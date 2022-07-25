@@ -5,10 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class BuscaResultado extends AppCompatActivity {
 
@@ -22,7 +20,6 @@ public class BuscaResultado extends AppCompatActivity {
         String chaveContador = getIntent().getStringExtra("chave_contador");
         int contador = Integer.parseInt(chaveContador);
 
-            Memoria memoria = new Memoria();
             //plantasAdicionadas.add(contador);
             plantasAdicionadas.clear();
             plantasAdicionadas.add(contador);
@@ -47,7 +44,7 @@ public class BuscaResultado extends AppCompatActivity {
             TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[1];
             for (int i = 0; i < qtdplantas; i++) {
                 int x = plantasAdicionadas.get(i);
-                todasAsPlantas[0] = new TodasAsPlantas(memoria.getNomeDasPlantas().get(x), memoria.getEspeciesDasPlantas().get(x), memoria.getTxtAgua().get(x), memoria.getTxtLuz().get(x), memoria.getTxtAmbiente().get(x), memoria.getImagemPlanta().get(x), memoria.getImagemLuz().get(x));
+                todasAsPlantas[0] = new TodasAsPlantas(Memoria.nomeDasPlantas.get(x), Memoria.especiesDasPlantas.get(x), Memoria.txtAgua.get(x), Memoria.txtLuz.get(x), Memoria.txtAmbiente.get(x), Memoria.imagemPlanta.get(x), Memoria.imagemLuz.get(x));
             }
 
             BuscaResultadoAdaptador adaptador = new BuscaResultadoAdaptador(todasAsPlantas, BuscaResultado.this);

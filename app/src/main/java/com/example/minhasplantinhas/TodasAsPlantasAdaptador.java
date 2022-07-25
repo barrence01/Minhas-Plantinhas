@@ -1,21 +1,16 @@
 package com.example.minhasplantinhas;
 
-import com.example.minhasplantinhas.ListaDePlantas;
 import android.content.Context;
 import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ComponentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 
 //https://www.youtube.com/watch?v=ZTg-oXaCgBk
 public class TodasAsPlantasAdaptador extends RecyclerView.Adapter<TodasAsPlantasAdaptador.ViewHolder> {

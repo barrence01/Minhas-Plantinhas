@@ -30,24 +30,20 @@ public class DetalhesMinhasPlantas extends AppCompatActivity {
         int chaveContador = Integer.parseInt(contador);
         //----------------------------------------------------------
         //Dados da memória
-        Memoria memoria = new Memoria();
-        //para buscar a ordem correta da lista "MinhasPlantas"
-        MinhasPlantas mm = new MinhasPlantas();
-
-        ArrayList<String> listaNomePlantas = memoria.getNomeDasPlantas();
-        ArrayList<String> listaEspecies = memoria.getEspeciesDasPlantas();
-        ArrayList<String> listatxtAgua = memoria.getTxtAgua();
-        ArrayList<String> listatxtLuz = memoria.getTxtLuz();
-        ArrayList<String> listatxtAmbiente = memoria.getTxtAmbiente();
-        ArrayList<Integer> listaImagemPlanta = memoria.getImagemPlanta();
-        ArrayList<Integer> listaImagemLuz = memoria.getImagemLuz();
+        ArrayList<String> listaNomePlantas = Memoria.nomeDasPlantas;
+        ArrayList<String> listaEspecies = Memoria.especiesDasPlantas;
+        ArrayList<String> listatxtAgua = Memoria.txtAgua;
+        ArrayList<String> listatxtLuz = Memoria.txtLuz;
+        ArrayList<String> listatxtAmbiente = Memoria.txtAmbiente;
+        ArrayList<Integer> listaImagemPlanta = Memoria.imagemPlanta;
+        ArrayList<Integer> listaImagemLuz = Memoria.imagemLuz;
         //ArrayList do conteúdo
-        ArrayList<String> listaResumo = memoria.getListaResumo();
-        ArrayList<String> listaIluminacao = memoria.getListaIluminacao();
-        ArrayList<String> listaRega = memoria.getListaRega();
-        ArrayList<String> listaPoda = memoria.getListaPoda();
-        ArrayList<String> listaFertilizantes = memoria.getListaFertilizantes();
-        ArrayList<String> listaCuidadosExtras = memoria.getListaCuidadosExtras();
+        ArrayList<String> listaResumo = Memoria.listaResumo;
+        ArrayList<String> listaIluminacao = Memoria.listaIluminacao;
+        ArrayList<String> listaRega = Memoria.listaRega;
+        ArrayList<String> listaPoda = Memoria.listaPoda;
+        ArrayList<String> listaFertilizantes = Memoria.listaFertilizantes;
+        ArrayList<String> listaCuidadosExtras = Memoria.listaCuidadosExtras;
         //----------------------------------------------------------
 
         //----------------------------------------------------------
@@ -69,7 +65,7 @@ public class DetalhesMinhasPlantas extends AppCompatActivity {
         //----------------------------------------------------------
         //Atribuir valores a variáveis
 
-        int chave = mm.plantasAdicionadas2.get(chaveContador);
+        int chave = MinhasPlantas.plantasAdicionadas2.get(chaveContador);
 
         String nome = listaNomePlantas.get(chave);
         String especie = listaEspecies.get(chave);
