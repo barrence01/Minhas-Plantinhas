@@ -15,18 +15,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="0dp"
             android:background="@drawable/retangulo"
             android:foreground="?attr/selectableItemBackground"
             > <!--android:background="?android:attr/selectableItemBackground" adiciona um hover-->
 
             <ImageView
                 android:id="@+id/imagem_planta"
-                android:layout_width="69dp"
-                android:layout_height="74dp"
+                android:layout_width="92dp"
+                android:layout_height="84dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp" />
+                android:layout_marginRight="16dp"
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/nome_planta"
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="-5dp"
+                android:layout_marginTop="0dp"
                 android:layout_toRightOf="@+id/imagem_planta"
                 android:textSize="24sp"
                 tools:text="Nome" />

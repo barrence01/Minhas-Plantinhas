@@ -23,7 +23,7 @@ public class Memoria extends MinhasPlantas{
     //Dados cardview
     static ArrayList<String> nomeDasPlantas = new ArrayList<String>(Arrays.asList("Antúrio", "Comigo-ninguém-pode", "Dracena", "Espada-de-são-jorge", "Imbé", "Lírio da Paz", "Orquídea", "Samambaia"));
     static ArrayList<String> especiesDasPlantas = new ArrayList<String>(Arrays.asList("Anthuriums andraeanum", "Dieffenbacchia", "Dracaenas Massangeana", "Sansevieria trifasciata", "Philodendrons", "Spathiphyllum wallisi", "várias espécies", "várias espécies"));
-    static ArrayList<String> txtAgua = new ArrayList<String>(Arrays.asList("Umida", "Umida", "Umida", "Umida", "Muita Água", "Umido", "Pouca Água", "Umida"));
+    static ArrayList<String> txtAgua = new ArrayList<String>(Arrays.asList("Umida", "Umida", "Umida", "Umida", "Muita", "Umido", "Pouca", "Umida"));
     static ArrayList<String> txtLuz = new ArrayList<String>(Arrays.asList("Manhã e Quente", "Tarde", "Pouca Luz", "Manhã e tarde", "Manhã e Tarde", "Morno", "Manhã", "Manhã e Quente"));
     static ArrayList<String> txtAmbiente = new ArrayList<String>(Arrays.asList("Sombra", "Meia-Sombra", "Doméstico", "Externo", "Externo", "Doméstico", "Doméstico", "Doméstico"));
     //Imagem
