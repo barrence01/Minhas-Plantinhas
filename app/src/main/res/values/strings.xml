@@ -21,7 +21,7 @@
     <string name="fertilizante">Fertilizante:</string>
     <string name="cuidados_especiais">Cuidados Especiais:</string>
     <string name="btn_adicionar">Adicionar aos Favoritos</string>
-    <string name="btn_remover">Deletar dos Favoritos</string>
+    <string name="btn_remover">Remover dos Favoritos</string>
     <string name="digite_o_seu_email">Digite seu Email</string>
     <string name="digite_a_sua_senha">Digite sua senha</string>
     <string name="resultado">Resultado</string>

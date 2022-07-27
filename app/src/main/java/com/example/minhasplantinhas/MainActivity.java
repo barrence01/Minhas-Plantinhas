@@ -41,26 +41,36 @@ public class MainActivity extends AppCompatActivity {
 
                 for(int contador = 0; contador < listaContas.size(); contador++) {
 
+                    if (variavelEmail.equals("")) {Toast.makeText(getApplicationContext(), "Campo de Email está vazio! Por favor insira seu e-mail.", Toast.LENGTH_LONG).show(); break;}
+                    if (variavelSenha.equals("")) {Toast.makeText(getApplicationContext(), "Campo de Senha está vazio! Por favor insira sua senha.", Toast.LENGTH_LONG).show(); break;}
+
+
                     if (variavelEmail.equals(listaContas.get(contador))) {
-                        if (variavelSenha.equals(senhas.get(contador))) {
-                            Intent intent = new Intent(MainActivity.this, MinhasPlantas.class);
-                            intent.putExtra("chave_email", variavelEmail); /*Envia junto com a intent as informações dos objetos*/
-                            startActivity(intent);
-                            break;
-                        } else {
+
+                            if (variavelSenha.equals(senhas.get(contador))) {
+
+                                Intent intent = new Intent(MainActivity.this, MinhasPlantas.class);
+                                intent.putExtra("chave_email", variavelEmail); /*Envia junto com a intent as informações dos objetos*/
+                                startActivity(intent);
+                                break;
+
+                            } else {
+                                Toast.makeText(getApplicationContext(),
+                                        "Senha inválida!",
+                                        Toast.LENGTH_LONG).show();
+                                break;
+                            }
+
+                        } else if (contador == listaContas.size() - 1) {
                             Toast.makeText(getApplicationContext(),
-                                    "Senha inválida!",
+                                    "Email inválido!",
                                     Toast.LENGTH_LONG).show();
                             break;
                         }
-                    } else if (contador == listaContas.size() - 1) {
-                        Toast.makeText(getApplicationContext(),
-                                "Email inválido!",
-                                Toast.LENGTH_LONG).show();
-                        break;
-                    }
                 }
             }
+
+
         });
     }
 }

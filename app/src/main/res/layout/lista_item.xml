@@ -53,7 +53,7 @@
                 android:layout_width="16dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/especie_planta"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:layout_toRightOf="@+id/imagem_planta"
                 android:background="@drawable/water_drop" />
 
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/especie_planta"
                 android:layout_marginLeft="1dp"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="7dp"
                 android:layout_toRightOf="@+id/imagem_agua"
                 android:textSize="16sp"
                 tools:text="agua" />
@@ -74,7 +74,7 @@
                 android:layout_height="22dp"
                 android:layout_below="@+id/especie_planta"
                 android:layout_marginLeft="3dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:layout_toRightOf="@+id/txt_agua" />
 
             <TextView
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/especie_planta"
                 android:layout_marginLeft="1dp"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="7dp"
                 android:layout_toRightOf="@+id/imagem_luz"
                 android:textSize="16sp"
                 tools:text="luz" />
@@ -94,7 +94,7 @@
                 android:layout_height="22dp"
                 android:layout_below="@+id/especie_planta"
                 android:layout_marginLeft="4dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:layout_toRightOf="@+id/txt_luz"
                 android:background="@drawable/day_cloud_wind" />
 
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/especie_planta"
                 android:layout_marginLeft="1dp"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="7dp"
                 android:layout_toRightOf="@+id/imagem_ambiente"
                 android:textSize="16sp"
                 tools:text="ambiente" />

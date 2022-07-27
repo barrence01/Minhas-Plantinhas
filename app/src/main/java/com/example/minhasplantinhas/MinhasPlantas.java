@@ -36,6 +36,10 @@ public class MinhasPlantas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_minhas_plantas);
 
+        preencherFavoritos();
+
+
+
 
         //----------------------------------------------------------
         //Botões
@@ -57,22 +61,36 @@ public class MinhasPlantas extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
+
+        preencherFavoritos();
+
+
+
+
+    }
+
+
+    private void preencherFavoritos() {
+
         String chaveContador = getIntent().getStringExtra("chave_contador");
 
-        if (chaveContador != null) {
-            int contador = Integer.parseInt(chaveContador);
-            Memoria memoria = new Memoria();
-            plantasAdicionadas.add(contador);
+        if ((plantasAdicionadas2.isEmpty() == false)||(chaveContador != null)) {
 
-            ArrayList<Integer> listWithoutDuplicates = new ArrayList<>(new HashSet<>(plantasAdicionadas));
-            plantasAdicionadas2 = listWithoutDuplicates;
+            //Verificar se algum item foi adicionado
+            if (chaveContador != null ) {
+                int contador = Integer.parseInt(chaveContador);
+
+                plantasAdicionadas.add(contador);
+            }
+
+            //Retira itens repetidos da lista
+            retirarRepetidos(plantasAdicionadas);
+
+            int qtdplantas = plantasAdicionadas.toArray().length;
 
 
-            int qtdplantas = listWithoutDuplicates.toArray().length;
-
-
-            //Remove texto do botão +
-            if(listWithoutDuplicates.toArray().length > 5 ){
+            //Remove texto do botão adicionar(+)
+            if(plantasAdicionadas.toArray().length > 5 ){
                 toqueAdicionar = findViewById(R.id.toqueadicionar);
                 toqueAdicionar.setText("");
             }
@@ -82,8 +100,8 @@ public class MinhasPlantas extends AppCompatActivity {
             //Adiciona item na lista de favoritos e remove duplicados
             TodasAsPlantas[] todasAsPlantas = new TodasAsPlantas[qtdplantas];
             for (int i = 0; i < qtdplantas; i++) {
-                int x = listWithoutDuplicates.get(i);
-                todasAsPlantas[i] = new TodasAsPlantas(memoria.getNomeDasPlantas().get(x), memoria.getEspeciesDasPlantas().get(x), memoria.getTxtAgua().get(x), memoria.getTxtLuz().get(x), memoria.getTxtAmbiente().get(x), memoria.getImagemPlanta().get(x), memoria.getImagemLuz().get(x));
+                int x = plantasAdicionadas.get(i);
+                todasAsPlantas[i] = new TodasAsPlantas(Memoria.nomeDasPlantas.get(x), Memoria.especiesDasPlantas.get(x), Memoria.txtAgua.get(x), Memoria.txtLuz.get(x), Memoria.txtAmbiente.get(x), Memoria.imagemPlanta.get(x), Memoria.imagemLuz.get(x));
             }
 
             //RecyclerView
@@ -100,13 +118,13 @@ public class MinhasPlantas extends AppCompatActivity {
                     "Não há plantas!",
                     Toast.LENGTH_LONG).show();
         }
-
-
     }
 
-
-
-
+    private void retirarRepetidos(ArrayList<Integer> array) {
+        ArrayList<Integer> listaSemDuplicado = new ArrayList<>(new HashSet<>(array));
+        plantasAdicionadas2 = (ArrayList<Integer>)listaSemDuplicado.clone();
+        plantasAdicionadas = (ArrayList<Integer>)plantasAdicionadas2.clone();
+    }
 
 }
 

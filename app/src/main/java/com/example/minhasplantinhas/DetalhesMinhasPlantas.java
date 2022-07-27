@@ -99,19 +99,17 @@ public class DetalhesMinhasPlantas extends AppCompatActivity {
         imagemLuz.setImageResource(imgLuz);
         imagemPlanta.setImageResource(imgPlanta);
 
-//        btnRemover = findViewById(R.id.btn_remover);
-//        btnRemover.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(DetalhesMinhasPlantas.this, MinhasPlantas.class);
-//
-//                MinhasPlantas minhasplantas = new MinhasPlantas();
-//                intent.putExtra("chave_contador", contador);
-//                finishAffinity();
-//                startActivity(intent);
-//            }
-//        });
-//
-//    }
+        btnRemover = findViewById(R.id.btn_remover);
+        btnRemover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetalhesMinhasPlantas.this, MinhasPlantas.class);
+                MinhasPlantas.plantasAdicionadas.remove(chaveContador);
+                MinhasPlantas.plantasAdicionadas2.remove(chaveContador);
+
+                startActivity(intent);
+            }
+        });
+
     }
-}
+    }
