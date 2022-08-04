@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btncomecar;
+    private Button btnComecar;
     private EditText email, senha; /*Tipo <EditText> no xml*/
 
     @Override
@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
         senha = findViewById(R.id.editTextTextPassword);
 
 
-        btncomecar = findViewById(R.id.button);
+        btnComecar = findViewById(R.id.button);
 
-        btncomecar.setOnClickListener(new View.OnClickListener() {
+        btnComecar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String variavelEmail = email.getText().toString(); /*Transforma o EditText em String*/
+                String variavelEmail = email.getText().toString();
                 String variavelSenha = senha.getText().toString();
 
                 ArrayList<String> listaContas = new ArrayList<String>(Arrays.asList("conta1@ibm.com", "conta2@ibm.com", "conta3@ibm.com"));
@@ -41,8 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
                 for(int contador = 0; contador < listaContas.size(); contador++) {
 
-                    if (variavelEmail.equals("")) {Toast.makeText(getApplicationContext(), "Campo de Email está vazio! Por favor insira seu e-mail.", Toast.LENGTH_LONG).show(); break;}
-                    if (variavelSenha.equals("")) {Toast.makeText(getApplicationContext(), "Campo de Senha está vazio! Por favor insira sua senha.", Toast.LENGTH_LONG).show(); break;}
+                    if (variavelEmail.equals("")) {
+                        Toast.makeText(getApplicationContext(),
+                                "Campo de E-mail está vazio! Por favor insira seu e-mail.", Toast.LENGTH_LONG).show(); break;}
+                    if (variavelSenha.equals("")) {
+                        Toast.makeText(getApplicationContext(),
+                                "Campo de Senha está vazio! Por favor insira sua senha.", Toast.LENGTH_LONG).show(); break;}
 
 
                     if (variavelEmail.equals(listaContas.get(contador))) {

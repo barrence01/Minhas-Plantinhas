@@ -51,12 +51,12 @@ public class ListaDePlantas extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String busca) {
                 int indexDaBusca;
-                String a = busca.toLowerCase();
-                String buscaSemAcento = removerAcentos(a);
+                String buscaMinusculo = busca.toLowerCase();
+                String buscaSemAcento = removerAcentos(buscaMinusculo);
 
                 for (int i = 0; i < Memoria.nomeDasPlantas.toArray().length; i++) {
-                    String x = Memoria.nomeDasPlantas.get(i).toLowerCase();
-                    String itemListaSemAcento = removerAcentos(x);
+                    String nomePlantaMinusculo = Memoria.nomeDasPlantas.get(i).toLowerCase();
+                    String itemListaSemAcento = removerAcentos(nomePlantaMinusculo);
                     if (itemListaSemAcento.startsWith(buscaSemAcento)) {
                         indexDaBusca = i;
                         Toast.makeText(ListaDePlantas.this, "Encontrado!", Toast.LENGTH_LONG).show();
